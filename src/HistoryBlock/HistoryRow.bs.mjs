@@ -3,19 +3,23 @@
 import * as JsxRuntime from "react/jsx-runtime";
 
 function HistoryRow(props) {
+  var amount = props.amount;
+  var displayAmount = amount.includes("-") ? "-$" + amount : "+$" + amount;
   return JsxRuntime.jsxs("div", {
               children: [
                 JsxRuntime.jsx("div", {
-                      children: "Cash",
+                      children: props.remarks,
                       className: "text-sm font-normal"
                     }),
                 JsxRuntime.jsx("div", {
-                      children: "+$400.0",
+                      children: displayAmount,
                       className: "text-sm font-normal"
                     }),
-                JsxRuntime.jsx("span", {
-                      className: "absolute w-[4px] h-full right-0 top-0 bg-red-700"
-                    })
+                amount.includes("-") ? JsxRuntime.jsx("span", {
+                        className: "absolute w-[4px] h-full right-0 top-0 bg-red-700"
+                      }) : JsxRuntime.jsx("span", {
+                        className: "absolute w-[4px] h-full right-0 top-0 bg-green-400"
+                      })
               ],
               className: "bg-white border border-gray-200 px-2 py-1 shadow-sm relative flex flex-row items-center justify-between"
             });

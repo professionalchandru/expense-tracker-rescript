@@ -1,5 +1,5 @@
 @react.component
-let make = (~type_, ~onChange, ~title, ~description=?) => {
+let make = (~type_, ~onChange, ~title, ~value: string,  ~description=?) => {
 
     let middleGapClass = switch description {
         |Some(_) => ""
@@ -15,6 +15,6 @@ let make = (~type_, ~onChange, ~title, ~description=?) => {
         
     }
     }
-    <input className="text-sm font-medium focus:outline-none" type_ onChange />
+    <input className="text-sm font-medium focus:outline-none" type_ onChange value={value} />
   </div>
 }

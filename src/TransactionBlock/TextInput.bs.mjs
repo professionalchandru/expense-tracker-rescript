@@ -18,6 +18,7 @@ function TextInput(props) {
                 JsxRuntime.jsx("input", {
                       className: "text-sm font-medium focus:outline-none",
                       type: props.type_,
+                      value: props.value,
                       onChange: props.onChange
                     })
               ],
